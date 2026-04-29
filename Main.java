@@ -56,7 +56,7 @@ public class Main {
                 if (role.equals("admin")){
                     while (true){
                         System.out.println("\n|---- \\\\\\\\ ADMIN MENU /////// ----|");
-                        System.out.println("[1] Add Car\n[2] Logout");
+                        System.out.println("[1] Add Car\n[2] View all Bookings\n[3] View all cars\n[4] Logout");
 
                         int op = sc.nextInt();
 
@@ -71,6 +71,11 @@ public class Main {
                             int price = sc.nextInt();
 
                             car.addCar(name,brand,price);
+                        }else if (op == 2) {
+                            b.viewAllBookings();
+
+                        }else if(op == 3){
+                            car.viewAllCars();
                         }
                         else{
                             break;
