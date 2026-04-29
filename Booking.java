@@ -64,7 +64,7 @@ public class Booking {
             
             FileWriter fw = new FileWriter(file_path,true);
             int id = getLastId() + 1;
-            fw.write(id + "," + userId + "," + carId + ",active\n");
+            fw.write(id + "," + userId + "," + carId + ",active," + start + "," + end + "\n");
             fw.close();
 
         }catch(IOException e){
@@ -139,4 +139,27 @@ public class Booking {
             System.out.println("Error during cancellation: "+ e.getMessage());
         }
     }
+
+    public void viewAllBookings() {
+        try {
+            File file = new File(file_path);
+            if (!file.exists()) {
+                System.out.println("No bookings found.");
+                return;
+            }
+            Scanner read = new Scanner(file);
+            System.out.println("\nBID | UID | CID | Status | Start | End");
+            System.out.println("-------------------------");
+            while (read.hasNextLine()) {
+                String line = read.nextLine();
+                if (line.isEmpty()){
+                     continue;
+                }
+                System.out.println(line.replace(",", " | "));
+            }
+            read.close();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+}
 }   

@@ -109,4 +109,26 @@ public class Car {
             
         }
     }
+
+    public void viewAllCars(){
+        try{
+            File file = new File(file_path);
+            if(!file.exists()){
+                System.out.println("No cars found in the database");
+            }
+            Scanner read = new Scanner(file);
+            System.out.println("\nID | Name | Brand | Price/km | Status | Start | End");
+            System.out.println("---------------------------------------------------------");
+            while(read.hasNextLine()){
+                String line = read.nextLine();
+                if(line.isEmpty()){
+                    continue;
+                }
+                System.out.println(line.replace(",","|"));
+            }
+            read.close();
+        }catch(Exception e){
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
 }
