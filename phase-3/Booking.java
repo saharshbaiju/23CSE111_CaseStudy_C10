@@ -111,8 +111,8 @@ public class Booking {
                 }
                 String[] data = line.split(",");
                 if (Integer.parseInt(data[0]) == bookingId){
-                    if(data[3].equals("active")){
-                        data[3] = "cancelled";
+                    if(data[4].equals("active")){
+                        data[4] = "cancelled";
 
                         int carId = Integer.parseInt(data[2]);
                         new Car().updateStatus(carId,"available","---","---");
