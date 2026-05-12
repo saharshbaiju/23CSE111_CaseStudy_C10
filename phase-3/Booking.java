@@ -135,6 +135,7 @@ public class Booking {
                 tempFile.delete(); 
                 System.out.println("Booking ID not found.");
             }
+            System.out.println("booking cancelled successfully");
             
         }catch(Exception e){
             System.out.println("Error during cancellation: "+ e.getMessage());
